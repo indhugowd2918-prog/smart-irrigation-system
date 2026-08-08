@@ -1,0 +1,19 @@
+```verilog
+module smart_irrigation (
+    input  wire clk,
+    input  wire reset,
+    input  wire soil_dry,
+    output reg  pump
+);
+
+always @(posedge clk) begin
+    if (reset)
+        pump <= 1'b0;
+    else if (soil_dry)
+        pump <= 1'b1;
+    else
+        pump <= 1'b0;
+end
+
+endmodule
+```
